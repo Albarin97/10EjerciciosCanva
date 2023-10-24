@@ -30,9 +30,38 @@ eje2Btn.addEventListener('click', ()=>{
     
     if (isNaN(celcius)) {
         alert('Ingresa un número válido en el campo de Celsius.');
-        return; // Sale de la función si no es un número válido
+        return;
     }
 
     eje2OutF.value = `${(celcius*(9/5))+32}°F`;
     eje2OutK.value = `${celcius+273.15}°K`;
 });
+
+//--------------------------------------Ejercicio 3
+
+const eje3Btn = document.getElementById('eje3-btn');
+const eje3Inp = document.getElementById('eje3');
+const eje3Out = document.getElementById('eje3-salida');
+
+eje3Btn.addEventListener('click', ()=> {
+
+    const num = parseInt(eje3Inp.value);
+
+    if(isNaN(num) || num<1){
+        alert('Ingresa un número válido.');
+        return;
+    }
+    
+    const fac = factorial(num);
+    
+    eje3Out.value = `${fac}`;
+
+});
+
+function factorial(num){
+    if(num==0){
+        return 1;
+    } else {
+        return num * factorial(num-1);
+    }
+}
